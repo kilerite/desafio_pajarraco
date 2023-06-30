@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[ show edit update destroy ]
-  
+  include Pagy::Backend
+
  
 
   # GET /tweets or /tweets.json
