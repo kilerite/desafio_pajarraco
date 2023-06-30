@@ -1,23 +1,36 @@
-<%= form_tag tweets_path, method: :get do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Buscar" %>
-<% end %>
-<br><br><br>
-
-<p style="color: green"><%= notice %></p>
-
-<h1>Tweets</h1>
-
-<div id="tweets">
-  <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
+<div class="container text-center">
+  <%= form_tag tweets_path, method: :get, class: "mb-4" do %>
+    <%= text_field_tag :search, params[:search], class: "form-control" %>
+    <%= submit_tag "Buscar", class: "btn btn-primary mt-2" %>
   <% end %>
+
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Tweets</h1>
+
+  <div class="row justify-content-center">
+    <% @tweets.each do |tweet| %>
+      <div class="col-lg-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <%= render tweet %>
+            <p>
+              <%= link_to "Show this tweet", tweet %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  
+  <nav class="pagy-nav pagination justify-content-center">
+  <%= pagy_nav(@pagy, link_extra: 'class="page"') %>
+</nav>
+
+  
+  
+
+
+  <%= link_to "New tweet", new_tweet_path, class: "btn btn-primary mt-4" %>
 </div>
-
-<%= pagy_nav(@pagy)  if  @pagy.pages > 1 %>
-
-<%= link_to "New tweet", new_tweet_path %>
-
