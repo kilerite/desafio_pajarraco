@@ -74,3 +74,8 @@ end
 gem "pagy", "~> 6.0"
 
 gem "faker", "~> 3.2"
+
+gem "unsplash", "~> 3.0"
+
+gem 'randomuser-local-rails', require: 'randomuser_local'
+

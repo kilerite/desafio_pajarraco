@@ -1,10 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="text-center">VER MY PAJARRACO</h1>
 
-<%= render @tweet %>
+<div class="container text-center">
+  <p style="color: green"><%= notice %></p>
 
-<div>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-4">
+      <div class="card profile-card-2">
+        <div class="card-img-block">
+          <%= image_tag("fondo.jpg", class: "img-fluid", alt: "Card image cap") %>
+        </div>
+        <div class="card-body pt-5">
+          <img src="https://randomuser.me/api/portraits/men/64.jpg" alt="profile-image" class="profile"/> 
+          <%= render @tweet %>
+          <div class="icon-block">
+            <div class="edit-icon d-inline-block">
+              <%= link_to edit_tweet_path(@tweet) do %>
+                <i class="fa fa-pencil-square">
+                  <span class="letter-e">E</span>
+                </i>
+              <% end %>
+            </div>
 
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
+            <div class="delete-icon d-inline-block">
+              <%= button_to tweet_path(@tweet), method: :delete, data: { confirm: "¿Estás seguro de que deseas eliminar este tweet?" } do %>
+                <i class="fa fa-trash">DEL</i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
