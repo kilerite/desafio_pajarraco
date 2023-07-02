@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 100.times do
     Tweet.create(
-      description: Faker::Lorem.sentence(word_count: 5),
+      description: Faker::Lorem.sentence(word_count: 10),
       userName: Faker::Internet.username
     )
   end
